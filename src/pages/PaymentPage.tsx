@@ -14,10 +14,12 @@ const PaymentPage: React.FC = () => {
   const version = getQueryParam('version') as 'pc' | 'mobile' | null;
   const [activeTab, setActiveTab] = useState("btc");
   const [paymentStatus, setPaymentStatus] = useState<'initial' | 'processing' | 'confirmed'>('initial');
+  const [senderWallet, setSenderWallet] = useState('');
 
   useEffect(() => {
     setPaymentStatus('initial');
     setActiveTab("btc");
+    setSenderWallet('');
   }, [version]);
 
   const handleCopyAddress = (address: string, type: string) => {
@@ -26,6 +28,10 @@ const PaymentPage: React.FC = () => {
   };
 
   const handleProceedToDownload = () => {
+    if (!senderWallet.trim()) {
+      toast.error("Please enter your sender wallet address for verification.");
+      return;
+    }
     setPaymentStatus('processing');
     setTimeout(() => {
       setPaymentStatus('confirmed');
@@ -176,6 +182,21 @@ const PaymentPage: React.FC = () => {
                 </ol>
               </div>
 
+              <div className="mb-4">
+                <label htmlFor="senderWallet" className="block text-sm font-medium text-gta-neon mb-1">
+                  Enter Your Sender Wallet Address
+                </label>
+                <input
+                  type="text"
+                  id="senderWallet"
+                  name="senderWallet"
+                  placeholder="Enter the wallet address you used to send the payment for verification"
+                  value={senderWallet}
+                  onChange={(e) => setSenderWallet(e.target.value)}
+                  className="w-full rounded-md border border-gray-300 px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-gta-neon"
+                />
+              </div>
+
               <Button 
                 className="download-button text-primary-foreground font-bold w-full py-6"
                 onClick={handleProceedToDownload}
@@ -214,11 +235,12 @@ const PaymentPage: React.FC = () => {
             </div>
 
             <h2 className="text-2xl text-center gta-title text-gta-neon animate-glow">
-              Payment Confirmed!
+            PAYMENT PROCESSING!
             </h2>
 
             <p className="text-center text-muted-foreground">
-              Thank you for your purchase. Your download is ready.
+            Your payment is currently being verified. 
+            Please allow up to 24 hours for processing.Need urgent assistance? Contact:+44 7878 921037 to activate download link
             </p>
 
             <Button 

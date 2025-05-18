@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const Header = () => {
@@ -9,6 +8,9 @@ const Header = () => {
           <h1 className="text-gta-neon text-3xl md:text-5xl font-bold tracking-wider animate-glow gta-title">
             SABIR ENTERTAINMENT
           </h1>
+          <p className="text-gta-neon text-sm md:text-base mt-2 font-semibold">
+            (UNRELEASED VERSIONS)
+          </p>
         </div>
       </div>
     </header>
