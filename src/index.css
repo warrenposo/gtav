@@ -1,0 +1,127 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 33% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 240 25% 15%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 240 25% 15%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 180 100% 50%;
+    --primary-foreground: 240 33% 11%;
+
+    --secondary: 260 50% 75%;
+    --secondary-foreground: 240 33% 11%;
+
+    --muted: 240 20% 20%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 260 50% 75%;
+    --accent-foreground: 240 33% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 20% 20%;
+    --input: 240 20% 20%;
+    --ring: 180 100% 50%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 240 33% 11%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 180 100% 50%;
+    --sidebar-primary-foreground: 240 33% 11%;
+    --sidebar-accent: 240 20% 20%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 240 20% 20%;
+    --sidebar-ring: 180 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-gta-dark text-foreground font-gta;
+    background-image: url('/lovable-uploads/25809159-27c3-4589-8399-e96be22f807a.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+  }
+  
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 31, 44, 0.75);
+    z-index: -1;
+  }
+
+  .gta-title {
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.7);
+  }
+
+  .neon-text {
+    color: #00ffcc;
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.7);
+  }
+
+  .download-button {
+    background: linear-gradient(90deg, #00ffcc 0%, #9b87f5 100%);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .download-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #9b87f5 0%, #00ffcc 100%);
+    transition: all 0.3s ease;
+    z-index: -1;
+  }
+
+  .download-button:hover::before {
+    left: 0;
+  }
+
+  .crypto-card {
+    backdrop-filter: blur(10px);
+    background: rgba(26, 31, 44, 0.8);
+    border: 1px solid rgba(0, 255, 204, 0.3);
+  }
+
+  .version-tag {
+    background: linear-gradient(90deg, rgba(0, 255, 204, 0.2) 0%, rgba(155, 135, 245, 0.2) 100%);
+    border: 1px solid rgba(0, 255, 204, 0.3);
+  }
+
+  .modal-bg {
+    background: rgba(26, 31, 44, 0.95);
+    backdrop-filter: blur(10px);
+  }
+}
