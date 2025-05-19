@@ -249,7 +249,7 @@ const PaymentPage: React.FC = () => {
               onClick={handleDownload}
             >
               <Download className="mr-2 h-5 w-5" />
-              Make payment {version === 'pc' ? 'PC' : 'Mobile'} before proceeding to download
+              Make payment for {version === 'pc' ? 'PC' : 'Mobile'} before proceeding to download
             </Button>
           </div>
         )}
