@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import QRCode from 'react-qr-code';
-import { Bitcoin, Check, CreditCard, Download, Loader2, QrCode } from "lucide-react";
+import { Bitcoin, Check, CreditCard, Download, Loader2, QrCode, X } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
 import { Button } from "../components/ui/button";
 import { toast } from "sonner";
@@ -230,25 +230,26 @@ const PaymentPage: React.FC = () => {
 
         {paymentStatus === 'confirmed' && (
           <div className="py-8 flex flex-col items-center justify-center space-y-6">
-            <div className="bg-gta-neon/10 rounded-full p-3 mb-2">
-              <Check className="h-12 w-12 text-gta-neon" />
+            <div className="bg-yellow-500/10 rounded-full p-3 mb-2">
+              <X className="h-12 w-12 text-yellow-500" />
             </div>
 
-            <h2 className="text-2xl text-center gta-title text-gta-neon animate-glow">
-            PAYMENT PROCESSING!
+            <h2 className="text-2xl text-center gta-title text-yellow-500 animate-glow">
+              Payment Verification Pending
             </h2>
 
             <p className="text-center text-muted-foreground">
-            Your payment is currently being verified. 
-            Please allow up to 24 hours for processing.Need urgent assistance? Contact:+44 7878 921037 to activate download link
+              Your payment is currently being verified. Please allow up to 24 hours for processing.
+              <br />
+              Need urgent assistance? Contact: +44 7878 921037 to activate download link
             </p>
 
             <Button 
-              className="download-button text-primary-foreground font-bold w-full py-6 mt-4"
+              className="download-button text-primary-foreground font-bold w-full py-6 mt-4 bg-yellow-600 hover:bg-yellow-700"
               onClick={handleDownload}
             >
               <Download className="mr-2 h-5 w-5" />
-              Download {version === 'pc' ? 'PC' : 'Mobile'} Version Now
+              Make payment {version === 'pc' ? 'PC' : 'Mobile'} before proceeding to download
             </Button>
           </div>
         )}
